@@ -5,20 +5,18 @@
 // [IC50 Avg] & '+-' & [IC50 StdDev] & '(' & [IC50 Count] & ')'
 // [IC50 Avg] & "+-" & [IC50 StdDev] & "(" & [IC50 Count] & ")"
 
-expression { Value* }
+expression { ComposedValue* }
 
-Value { Interpolation | Number | String | Boolean }
+ComposedValue { Interpolation | String | Number }
+Interpolation {OpenInterpolation TemplateString* CloseInterpolation}
 
 @tokens {
   Number { @digit+ }
-  Boolean {"true" | "false"}
-  TemplateString {![$\[\]]+}
-  String { (Quotes (!["\\] | "\\" _)* Quotes) }
-  Quotes { '"' }
-  Interpolation {OpenInterpolation TemplateString* CloseInterpolation}
-  OpenInterpolation { "[" }
-  CloseInterpolation { "]" }
+  String { '"' ![\n"]* '"' | "'" ![\n"]* "'" }
+  TemplateString {![\n\[\]]}
+  OpenInterpolation {"["}
+  CloseInterpolation {"]"}
   space { @whitespace+ }
 
-  @precedence { Interpolation, String, space }
+  @precedence { OpenInterpolation, TemplateString, String, space}
 }

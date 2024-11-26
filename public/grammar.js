@@ -2,15 +2,15 @@
 import {LRParser} from "@lezer/lr"
 export const parser = LRParser.deserialize({
   version: 14,
-  states: "tOVQPOOOOQO'#C^'#C^OOQO'#Cc'#CcOhQPO'#CgQOQPOOOOQO-E6a-E6a",
-  stateData: "!O~OYOS~ORPOSPOTPOUPOWZP~ORPOSPOTPOUPOWZX~ORTYT~",
-  goto: "j[PP]PPPPaPPPgTQORQRORTRRSO",
-  nodeNames: "⚠ Program Value Interpolation Number String Boolean",
-  maxTerm: 11,
+  states: "!jOVQPOOOeQQO'#C_OOQO'#C^'#C^OOQO'#Ce'#CeOmQPO'#CjQOQPOOOOQO'#Cf'#CfO{QQO,58yOOQO,58y,58yOOQO-E6c-E6cOOQO-E6d-E6dOOQO1G.e1G.e",
+  stateData: "!Z~O]OS~OSPOVQOWQOZ^P~OTUOUWO~OSPOVQOWQOZ^X~OTUOUZO~OSTV]V~",
+  goto: "w_PP`dPPPPPhnPPPtTROSTQOSQSORXSQVPRYVRTO",
+  nodeNames: "⚠ Program ComposedValue Interpolation OpenInterpolation TemplateString CloseInterpolation String Number",
+  maxTerm: 14,
   skippedNodes: [0],
-  repeatNodeCount: 1,
-  tokenData: "&Z~R_X^!Qpq!Qrs!u!Q![$c!}#O$k#Y#Z%`#h#i%}#y#z!Q$f$g!Q#BY#BZ!Q$IS$I_!Q$I|$JO!Q$JT$JU!Q$KV$KW!Q&FU&FV!Q~!VYY~X^!Qpq!Q#y#z!Q$f$g!Q#BY#BZ!Q$IS$I_!Q$I|$JO!Q$JT$JU!Q$KV$KW!Q&FU&FV!Q~!xVOr!urs#_s#O!u#O#P#d#P;'S!u;'S;=`$]<%lO!u~#dOT~~#gRO;'S!u;'S;=`#p;=`O!u~#sWOr!urs#_s#O!u#O#P#d#P;'S!u;'S;=`$];=`<%l!u<%lO!u~$`P;=`<%l!u~$hPS~!Q![$c~$nVOt$ku!}$k#O#P$k#P#Q%T#Q;'S$k;'S;=`%Y<%lO$k~%YOR~~%]P;=`<%l$k~%cP#T#U%f~%iP#`#a%l~%oP#g#h%r~%uP#X#Y%x~%}OU~~&QP#f#g&T~&WP#i#j%r",
-  tokenizers: [0],
+  repeatNodeCount: 2,
+  tokenData: "(r~RsOX#`XY#eYZ$[Z^#e^p#`pq#eqr#`rs%Psw#`wx&Yx!Q#`!Q![(O![!}#`!}#O(b#O#P#`#P#Q(g#Q#y#`#y#z#e#z$f#`$f$g#e$g#BY#`#BY#BZ#e#BZ$IS#`$IS$I_#e$I_$I|#`$I|$JO#e$JO$JT#`$JT$JU#e$JU$KV#`$KV$KW#e$KW&FU#`&FU&FV#e&FV;'S#`;'S;=`(l<%lO#`Q#eOTQ~#lYTQ]~X^$[pq$[#y#z$[$f$g$[#BY#BZ$[$IS$I_$[$I|$JO$[$JT$JU$[$KV$KW$[&FU&FV$[~$aY]~X^$[pq$[#y#z$[$f$g$[#BY#BZ$[$IS$I_$[$I|$JO$[$JT$JU$[$KV$KW$[&FU&FV$[~%UUTQOY%hZr%hrs%}s;'S%h;'S;=`&S<%lO%h~%kUOY%hZr%hrs%}s;'S%h;'S;=`&S<%lO%h~&SOV~~&VP;=`<%l%h~&_VTQOY&tZr&tsw&twx'^x;'S&t;'S;=`'x<%lO&t~&wVOY&tZr&tsw&twx'^x;'S&t;'S;=`'x<%lO&t~'cVV~OY&tZr&tsw&twx'^x;'S&t;'S;=`'x<%lO&t~'{P;=`<%l&tR(VPWPTQ!Q![(YP(_PWP!Q![(Y~(gOS~~(lOU~Q(oP;=`<%l#`",
+  tokenizers: [0, 1],
   topRules: {"Program":[0,1]},
-  tokenPrec: 41
+  tokenPrec: 51
 })
