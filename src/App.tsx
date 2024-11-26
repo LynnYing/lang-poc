@@ -14,7 +14,7 @@ function myCompletions(context: any) {
     from: word.from,
     options: [
       { label: 'match', type: 'keyword' },
-      { label: 'Sum', type: 'keyword', apply: 'Sum()' },
+      { label: 'Sum', type: 'keyword', apply: 'Sum' },
       { label: 'hello', type: 'variable', info: '(World)' },
       { label: 'magic', type: 'text', apply: '⠁⭒*.✩.*⭒⠁', detail: 'macro' },
     ],

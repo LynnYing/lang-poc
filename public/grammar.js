@@ -2,14 +2,14 @@
 import {LRParser} from "@lezer/lr"
 export const parser = LRParser.deserialize({
   version: 14,
-  states: "zOVQPOOOOQO'#C`'#C`OOQO'#C^'#C^OOQO'#Cd'#CdOhQPO'#ChQOQPOOOOQO-E6b-E6b",
-  stateData: "|~OZOS~ORQOTPOUPOVPOX[P~ORQOTPOUPOVPOX[X~OZU~",
-  goto: "o]PP^PbPPPfPPPlTROSTQOSQSORUSRTO",
-  nodeNames: "⚠ Program Value Interpolation ComposedValue Number String Boolean",
-  maxTerm: 12,
+  states: "tOVQPOOOOQO'#C^'#C^OOQO'#Cc'#CcOhQPO'#CgQOQPOOOOQO-E6a-E6a",
+  stateData: "!O~OYOS~ORPOSPOTPOUPOWZP~ORPOSPOTPOUPOWZX~ORTYT~",
+  goto: "j[PP]PPPPaPPPgTQORQRORTRRSO",
+  nodeNames: "⚠ Program Value Interpolation Number String Boolean",
+  maxTerm: 11,
   skippedNodes: [0],
   repeatNodeCount: 1,
-  tokenData: "'[~R`X^!Tpq!Trs!xwx!x!Q![%d!}#O%l#Y#Z&a#h#i'O#y#z!T$f$g!T#BY#BZ!T$IS$I_!T$I|$JO!T$JT$JU!T$KV$KW!T&FU&FV!T~!YYZ~X^!Tpq!T#y#z!T$f$g!T#BY#BZ!T$IS$I_!T$I|$JO!T$JT$JU!T$KV$KW!T&FU&FV!T~!{XOr!xrs#hsw!xwx#mx#O!x#O#P$_#P;'S!x;'S;=`%^<%lO!x~#mOU~~#rXU~Or!xrs#hsw!xwx#mx#O!x#O#P$_#P;'S!x;'S;=`%^<%lO!x~$bRO;'S!x;'S;=`$k;=`O!x~$nYOr!xrs#hsw!xwx#mx#O!x#O#P$_#P;'S!x;'S;=`%^;=`<%l!x<%lO!x~%aP;=`<%l!x~%iPT~!Q![%d~%oVOt%lu!}%l#O#P%l#P#Q&U#Q;'S%l;'S;=`&Z<%lO%l~&ZOR~~&^P;=`<%l%l~&dP#T#U&g~&jP#`#a&m~&pP#g#h&s~&vP#X#Y&y~'OOV~~'RP#f#g'U~'XP#i#j&s",
+  tokenData: "&Z~R_X^!Qpq!Qrs!u!Q![$c!}#O$k#Y#Z%`#h#i%}#y#z!Q$f$g!Q#BY#BZ!Q$IS$I_!Q$I|$JO!Q$JT$JU!Q$KV$KW!Q&FU&FV!Q~!VYY~X^!Qpq!Q#y#z!Q$f$g!Q#BY#BZ!Q$IS$I_!Q$I|$JO!Q$JT$JU!Q$KV$KW!Q&FU&FV!Q~!xVOr!urs#_s#O!u#O#P#d#P;'S!u;'S;=`$]<%lO!u~#dOT~~#gRO;'S!u;'S;=`#p;=`O!u~#sWOr!urs#_s#O!u#O#P#d#P;'S!u;'S;=`$];=`<%l!u<%lO!u~$`P;=`<%l!u~$hPS~!Q![$c~$nVOt$ku!}$k#O#P$k#P#Q%T#Q;'S$k;'S;=`%Y<%lO$k~%YOR~~%]P;=`<%l$k~%cP#T#U%f~%iP#`#a%l~%oP#g#h%r~%uP#X#Y%x~%}OU~~&QP#f#g&T~&WP#i#j%r",
   tokenizers: [0],
   topRules: {"Program":[0,1]},
   tokenPrec: 41

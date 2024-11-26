@@ -9,7 +9,7 @@ export const EXAMPLELanguage = LRLanguage.define({
         // String: t.string,
         // Interpolation: t.tagName,
         // Operator: t.operatorKeyword,
-        Identifier: t.string,
+        // Identifier: t.string,
         String: t.string,
         Interpolation: t.tagName,
         // OpenInterpolation: t.tagName,

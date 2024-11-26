@@ -3,7 +3,6 @@ export const
   Program = 1,
   Value = 2,
   Interpolation = 3,
-  ComposedValue = 4,
-  Number = 5,
-  String = 6,
-  Boolean = 7
+  Number = 4,
+  String = 5,
+  Boolean = 6

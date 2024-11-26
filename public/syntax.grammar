@@ -2,30 +2,23 @@
 
 @skip { space }
 
-// http://${env:HOST}:${env:PORT}/graphql
-// ${env:CONTENT_TYPE}
-// Bearer ${env:AUTHORIZATION}
-// ${env:CONTENT_LENGTH} + 10 
-// hola ${env:CONTENT_LENGTH + "10" + env:HOST | json_path '.id'}
+// [IC50 Avg] & '+-' & [IC50 StdDev] & '(' & [IC50 Count] & ')'
+// [IC50 Avg] & "+-" & [IC50 StdDev] & "(" & [IC50 Count] & ")"
 
 expression { Value* }
 
-ComposedValue { Number | String | Boolean}
-
-Value { Interpolation | ComposedValue }
+Value { Interpolation | Number | String | Boolean }
 
 @tokens {
   Number { @digit+ }
   Boolean {"true" | "false"}
   TemplateString {![$\[\]]+}
-  String { Quotes (!["\\] | "\\" _)* Quotes }
-  Quotes { "'" | '"' }
+  String { (Quotes (!["\\] | "\\" _)* Quotes) }
+  Quotes { '"' }
   Interpolation {OpenInterpolation TemplateString* CloseInterpolation}
   OpenInterpolation { "[" }
   CloseInterpolation { "]" }
   space { @whitespace+ }
 
-  @precedence { space, String }
+  @precedence { Interpolation, String, space }
 }
-
-@detectDelim
