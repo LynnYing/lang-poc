@@ -10,29 +10,22 @@
 
 expression { Value* }
 
-Expression {ComposedValue (Operator ComposedValue)*}
-ComposedValue {OutsideInput (Pipe SupportedParsers)*  | Number |  String |  Boolean}
-OutsideInput {Source Identifier}
-Interpolation {OpenInterpolation Expression CloseInterpolation}
-Value { Interpolation | TemplateString }
-SupportedParsers {JsonPath}
-JsonPath {"json_path '" Identifier "'"}
+ComposedValue { Number | String | Boolean}
+
+Value { Interpolation | ComposedValue }
 
 @tokens {
-  Identifier { $[a-zA-Z_.\-0-9]+ }
-  Pipe {"|"}
   Number { @digit+ }
   Boolean {"true" | "false"}
-  Operator {"+" | "-" | "*" | "/" | "%" | "^" }
-  TemplateString {![$]+}
-  String { "'" (!["\\] | "\\" _)* "'" }
-  OpenInterpolation { "${" }
-  CloseInterpolation { "}" }
-  Source { ("env" | "var") Colon }
-  Colon { ":" }
+  TemplateString {![$\[\]]+}
+  String { Quotes (!["\\] | "\\" _)* Quotes }
+  Quotes { "'" | '"' }
+  Interpolation {OpenInterpolation TemplateString* CloseInterpolation}
+  OpenInterpolation { "[" }
+  CloseInterpolation { "]" }
   space { @whitespace+ }
 
-  @precedence { OpenInterpolation, space, TemplateString}
+  @precedence { space, String }
 }
 
 @detectDelim
