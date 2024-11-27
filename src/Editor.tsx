@@ -1,7 +1,7 @@
-import { useEffect, useImperativeHandle, useRef, useState } from 'react'
+import { Ref, forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react'
 import { EditorView, ViewUpdate } from '@codemirror/view'
 import { EditorState } from '@codemirror/state'
-import { basicSetup } from 'codemirror'
+import { basicSetup, minimalSetup } from 'codemirror'
 import { EXAMPLE } from './grammar'
 
 type EditorProps = {
@@ -9,12 +9,15 @@ type EditorProps = {
   onChange?: (value: string, vu: ViewUpdate) => void
 }
 
-function Editor(props: EditorProps) {
+export interface EditorRef {
+  editor?: HTMLDivElement | null
+  view?: EditorView | null
+}
+
+function Editor(props: EditorProps, ref: Ref<EditorRef>) {
   const { value, onChange } = props
-  const containerRef = useRef<HTMLDivElement | null>(null)
-  const viewRef = useRef<EditorView | null>(null)
-  // const [view, setView] = useState<EditorView | null>(null)
-  const stateRef = useRef<EditorState>()
+  const editorRef = useRef<HTMLDivElement | null>(null)
+  const [view, setView] = useState<EditorView | null>(null)
 
   const updateListener = EditorView.updateListener.of((vu: ViewUpdate) => {
     if (vu.docChanged) {
@@ -24,27 +27,30 @@ function Editor(props: EditorProps) {
 
   useEffect(() => {
     if (value === undefined) return
-    const currentValue = viewRef.current?.state.doc.toString() ?? ''
-    if (viewRef.current && value !== currentValue) {
-      viewRef.current.dispatch({
+    const currentValue = view?.state.doc.toString() ?? ''
+    if (view && value !== currentValue) {
+      view.dispatch({
         changes: { from: 0, to: currentValue.length, insert: value || '' },
       })
     }
-  }, [value])
+  }, [view, value])
 
   useEffect(() => {
-    viewRef.current = new EditorView({
+    const currentView = new EditorView({
       doc: value,
-      extensions: [basicSetup, EXAMPLE(), updateListener],
-      parent: containerRef.current!,
+      extensions: [minimalSetup, EXAMPLE(), updateListener],
+      parent: editorRef.current!,
     })
+    setView(currentView)
     return () => {
-      viewRef.current?.destroy()
-      viewRef.current = null
+      currentView.destroy()
+      setView(null)
     }
-  }, [value])
+  }, [])
 
-  return <div ref={containerRef} style={{ width: 500, height: 100 }}></div>
+  useImperativeHandle(ref, () => ({ editor: editorRef.current, view: view }), [view])
+
+  return <div ref={editorRef} style={{ width: 500, height: 100 }}></div>
 }
 
-export default Editor
+export default forwardRef(Editor)
