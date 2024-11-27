@@ -13,7 +13,7 @@ const useAutoComplete = () => {
     const attributeList = [
       { label: 'match', type: 'keyword' },
       { label: 'Sum', type: 'keyword', apply: 'Sum' },
-      { label: 'hello', type: 'variable', info: '(World)' },
+      { label: 'hello', type: 'variable', info: 'Returns the absolute value of the argument. Example: Abs(-2)' },
       { label: 'magic', type: 'text', apply: '⠁⭒*.✩.*⭒⠁', detail: 'macro' },
     ]
 
@@ -22,6 +22,7 @@ const useAutoComplete = () => {
 
       return {
         from: node.from,
+        // to: node.nextSibling?.to ?? node.to,
         options: sourceOptionList,
       }
     }

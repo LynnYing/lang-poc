@@ -3,8 +3,4 @@ export const
   Program = 1,
   ComposedValue = 2,
   Interpolation = 3,
-  OpenInterpolation = 4,
-  TemplateString = 5,
-  CloseInterpolation = 6,
-  String = 7,
-  Number = 8
+  String = 4

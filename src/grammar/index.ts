@@ -6,11 +6,10 @@ export const EXAMPLELanguage = LRLanguage.define({
   parser: parser.configure({
     props: [
       styleTags({
-        String: t.keyword,
-        // Interpolation: t.tagName,
-        TemplateString: t.tagName,
-        OpenInterpolation: t.tagName,
-        CloseInterpolation: t.tagName,
+        String: t.string,
+        Interpolation: t.keyword,
+        // OpenInterpolation: t.tagName,
+        // CloseInterpolation: t.tagName,
       }),
     ],
   }),

@@ -6,17 +6,14 @@
 // [IC50 Avg] & "+-" & [IC50 StdDev] & "(" & [IC50 Count] & ")"
 
 expression { ComposedValue* }
-
-ComposedValue { Interpolation | String | Number }
-Interpolation {OpenInterpolation TemplateString* CloseInterpolation}
+ComposedValue { Interpolation | String }
 
 @tokens {
-  Number { @digit+ }
-  String { '"' ![\n"]* '"' | "'" ![\n"]* "'" }
-  TemplateString {![\n\[\]]}
+  String { '"' ![\n"]* '"' | "'" ![\n']* "'" }
+  Interpolation {OpenInterpolation (![\n\[\]]+)* CloseInterpolation}
   OpenInterpolation {"["}
   CloseInterpolation {"]"}
   space { @whitespace+ }
 
-  @precedence { OpenInterpolation, TemplateString, String, space}
+  @precedence { Interpolation, String, space }
 }
